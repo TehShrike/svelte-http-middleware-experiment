@@ -1,0 +1,44 @@
+<h2>
+	I'm a generic web form!
+</h2>
+<input
+	type="text"
+	on:change="fire('save', formData)"
+	bind:value="formData.coolThing"
+/>
+
+<script>
+export default {
+	data() {
+		return {
+			formData: {
+				coolThing: ''
+			}
+		}
+	},
+	oncreate() {
+		this.observe('endpoint', () => {
+			this.set({
+				formData: {
+					coolThing: 'Loading...'
+				}
+			})
+			this.fire('load')
+		})
+	},
+	methods: {
+		handleData(formData) {
+			this.set({
+				formData
+			})
+		},
+		handleError(error) {
+			this.set({
+				formData: {
+					coolThing: ''
+				}
+			})
+		}
+	}
+}
+</script>

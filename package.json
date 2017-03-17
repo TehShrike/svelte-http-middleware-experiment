@@ -1,0 +1,21 @@
+{
+  "name": "svelte-http",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -t [ sveltify --extensions [.html] ] client/index.js -o public/build.js -d",
+    "start": "node server.js",
+    "test": "echo \"no test specified\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "14.1.0",
+    "concat-stream": "1.6.0",
+    "st": "1.2.0",
+    "svelte": "1.11.3",
+    "sveltify": "1.0.3"
+  }
+}

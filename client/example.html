@@ -1,0 +1,30 @@
+<h1>
+	I'm a webapp!
+</h1>
+<p>
+	<input
+		type="number"
+		bind:value="id"
+	>
+</p>
+<div>
+	{{#if id}}
+	<GenericForm endpoint="/super/cool/thing/{{id}}" />
+	{{/if}}
+</div>
+
+<script>
+const httpMiddleware = require('./http-middleware')
+const GenericForm = httpMiddleware(require('./generic-form.html'))
+
+export default {
+	data() {
+		return {
+			id: 13
+		}
+	},
+	components: {
+		GenericForm
+	}
+}
+</script>
